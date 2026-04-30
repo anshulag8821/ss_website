@@ -1,4 +1,4 @@
-import { ArrowRight, Building2, Award, Globe } from 'lucide-react';
+import { ArrowRight, Building2, Award, Globe, Handshake } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SEO from '@/components/SEO';
 
@@ -42,6 +42,22 @@ const Partners = () => {
   const technologies = [
     'Oracle', 'Microsoft', 'AWS', 'Google Cloud', 'IBM', 'Red Hat',
     'VMware', 'Cisco', 'Dell', 'HP', 'SAP', 'Salesforce'
+  ];
+
+  const partners = [
+    {
+      title: 'Syncwell Infotech',
+      description: 'A leading HR consulting firm driving workforce transformation. This collaboration brings together our expertise in technology solutions with Syncwell deep capabilities in human capital consulting — creating a unique synergy that helps organizations not only build the right systems but also build the right teams to run them.',
+      link: 'https://syncwell.co.in'
+    },
+  //  {
+    //  title: 'Technology Solutions',
+    //  description: 'Joining forces with technology providers to deliver cloud, data and enterprise application innovation.'
+   // },
+   // {
+    //  title: 'Strategic Alliances',
+     // description: 'Building long-term strategic partnerships that drive growth, co-delivery and market expansion.'
+   // }
   ];
 
   return (
@@ -121,6 +137,68 @@ const Partners = () => {
               {technologies.map((tech, index) => (
                 <div key={index} className="px-6 py-3 glass-card hover:bg-gold/10 transition-colors">
                   <span className="text-white font-medium">{tech}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Partners */}
+      <section className="relative py-24 bg-black/20">
+        <div className="section-padding">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <span className="text-gold text-sm font-medium uppercase tracking-widest mb-4 block">Our Partners</span>
+              <h2 className="heading-lg text-white mb-6">
+                Sharing Success With <span className="text-gradient">Trusted Partners</span>
+              </h2>
+              
+              <p className="body-lg text-white/70 max-w-3xl mx-auto">
+                We work closely with HR consulting firms, technology solution providers, and strategic alliance partners to deliver impactful outcomes for our clients.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              {partners.map((partner, index) => (
+                <div key={index} className="glass-card p-8 hover-lift">
+                  {partner.title === 'Syncwell Infotech' ? (
+                    <div className="flex items-center justify-center gap-6 mb-6">
+                      <img 
+                        src="/logo.png" 
+                        alt="SARMAK Logo" 
+                        className="h-12 w-auto rounded-lg bg-white/10 p-2"
+                      />
+                      <div className="flex items-center justify-center w-16 h-16 rounded-xl bg-gold/20">
+                        <Handshake className="w-10 h-10 text-gold" />
+                      </div>
+                      <a 
+                        href={partner.link} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="hover:opacity-80 transition-opacity"
+                      >
+                        <img 
+                          src="/syncwell_logo.png" 
+                          alt="Syncwell Infotech Logo" 
+                          className="h-12 w-auto rounded-lg bg-white/10 p-2 cursor-pointer"
+                        />
+                      </a>
+                    </div>
+                  ) : (
+                    <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-gold/10 mb-6">
+                      <Handshake className="w-7 h-7 text-gold" />
+                    </div>
+                  )}
+                  <a 
+                    href={partner.link} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-xl font-semibold text-white mb-3 hover:text-gold transition-colors inline-block"
+                  >
+                    <h3>{partner.title}</h3>
+                  </a>
+                  <p className="text-white/70 leading-relaxed">{partner.description}</p>
                 </div>
               ))}
             </div>

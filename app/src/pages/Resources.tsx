@@ -9,9 +9,9 @@ const Resources = () => {
       title: 'Whitepapers',
       description: 'In-depth technical documents and industry insights.',
       items: [
-        { name: 'AI in IT Infrastructure Management', type: 'PDF' },
-        { name: 'Cloud Migration Best Practices', type: 'PDF' },
-        { name: 'Database Optimization Guide', type: 'PDF' }
+        { name: 'AI in IT Infrastructure Management', type: 'PDF', file: '/whitepapers/ai-infrastructure-management.pdf' },
+        { name: 'Cloud Migration Best Practices', type: 'PDF', file: '/whitepapers/cloud-migration-guide.pdf' },
+        { name: 'Database Optimization Guide', type: 'PDF', file: '/whitepapers/database-optimization.pdf' }
       ]
     },
     {
@@ -19,9 +19,9 @@ const Resources = () => {
       title: 'Case Studies',
       description: 'Real-world success stories from our clients.',
       items: [
-        { name: 'Financial Services Cloud Migration', type: 'PDF' },
-        { name: 'University AI Training Program', type: 'PDF' },
-        { name: 'Manufacturing Database Optimization', type: 'PDF' }
+        { name: 'Financial Services Cloud Migration', type: 'PDF', file: '/case-studies/financial-services-migration.pdf' },
+        { name: 'University AI Training Program', type: 'PDF', file: '/case-studies/university-ai-program.pdf' },
+        { name: 'Manufacturing Database Optimization', type: 'PDF', file: '/case-studies/manufacturing-database.pdf' }
       ]
     },
     {
@@ -29,18 +29,18 @@ const Resources = () => {
       title: 'Webinars',
       description: 'Recorded sessions and upcoming events.',
       items: [
-        { name: 'Introduction to AI in IT Operations', type: 'Video' },
-        { name: 'DevOps Fundamentals', type: 'Video' },
-        { name: 'Cloud Security Best Practices', type: 'Video' }
+        { name: 'Introduction to AI in IT Operations', type: 'Video', file: '/webinars/ai-it-operations.mp4' },
+        { name: 'DevOps Fundamentals', type: 'Video', file: '/webinars/devops-fundamentals.mp4' },
+        { name: 'Cloud Security Best Practices', type: 'Video', file: '/webinars/cloud-security.mp4' }
       ]
     }
   ];
 
   const guides = [
-    { title: 'IT Infrastructure Assessment Checklist', description: 'Evaluate your current IT setup' },
-    { title: 'Cloud Readiness Guide', description: 'Prepare for cloud migration' },
-    { title: 'Security Audit Framework', description: 'Assess your security posture' },
-    { title: 'Disaster Recovery Planning', description: 'Build resilient IT systems' }
+    { title: 'IT Infrastructure Assessment Checklist', description: 'Evaluate your current IT setup', file: '/guides/it-infrastructure-checklist.pdf' },
+    { title: 'Cloud Readiness Guide', description: 'Prepare for cloud migration', file: '/guides/cloud-readiness-guide.pdf' },
+    { title: 'Security Audit Framework', description: 'Assess your security posture', file: '/guides/security-audit-framework.pdf' },
+    { title: 'Disaster Recovery Planning', description: 'Build resilient IT systems', file: '/guides/disaster-recovery-planning.pdf' }
   ];
 
   return (
@@ -83,9 +83,16 @@ const Resources = () => {
                   <p className="body-sm mb-6">{category.description}</p>
                   <ul className="space-y-3">
                     {category.items.map((item, i) => (
-                      <li key={i} className="flex items-center justify-between text-white/70 text-sm">
-                        <span>{item.name}</span>
-                        <span className="px-2 py-1 bg-white/5 rounded text-xs">{item.type}</span>
+                      <li key={i} className="flex items-center justify-between text-white/70 text-sm group">
+                        <span className="group-hover:text-white transition-colors">{item.name}</span>
+                        <a
+                          href={item.file}
+                          download
+                          className="flex items-center gap-2 px-3 py-1 bg-gold/10 text-gold rounded text-xs hover:bg-gold hover:text-[#1c1d1b] transition-all"
+                        >
+                          <Download className="w-3 h-3" />
+                          Download
+                        </a>
                       </li>
                     ))}
                   </ul>
@@ -111,14 +118,18 @@ const Resources = () => {
 
             <div className="grid md:grid-cols-2 gap-6">
               {guides.map((guide, index) => (
-                <div key={index} className="glass-card p-6 flex items-center justify-between hover-lift">
+                <div key={index} className="glass-card p-6 flex items-center justify-between hover-lift group">
                   <div>
-                    <h3 className="text-white font-semibold mb-1">{guide.title}</h3>
+                    <h3 className="text-white font-semibold mb-1 group-hover:text-gold transition-colors">{guide.title}</h3>
                     <p className="text-white/60 text-sm">{guide.description}</p>
                   </div>
-                  <button className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center text-gold hover:bg-gold hover:text-[#1c1d1b] transition-all">
+                  <a
+                    href={guide.file}
+                    download
+                    className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center text-gold hover:bg-gold hover:text-[#1c1d1b] transition-all group-hover:scale-110"
+                  >
                     <Download className="w-5 h-5" />
-                  </button>
+                  </a>
                 </div>
               ))}
             </div>

@@ -1,13 +1,22 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 //import { Menu, X, ChevronDown, Brain, Cloud, Database, Server, Code, Settings, Layers, Monitor } from 'lucide-react';
-import { Menu, X, ChevronDown, Brain, Cloud, Database, Server, Code, GraduationCap, Layers, Monitor } from 'lucide-react';
+import { Menu, X, ChevronDown, Brain, Cloud, Database, Server, Code, Layers, Monitor } from 'lucide-react';
 
 const Header = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const location = useLocation();
   const navRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
@@ -43,7 +52,6 @@ const Header = () => {
     { name: 'Case Studies', path: '/case-studies' },
    // { name: 'Testimonials', path: '/testimonials' },
     { name: 'Partners', path: '/partners' },
-    { name: 'News', path: '/news' },
     { name: 'Careers', path: '/careers' },
   ];
 
@@ -58,7 +66,13 @@ const Header = () => {
   const isServicesActive = location.pathname.startsWith('/services');
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-black shadow-lg shadow-black/20">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isScrolled
+          ? 'bg-[#1c1d1b]/95 backdrop-blur-lg shadow-lg shadow-black/20'
+          : 'bg-transparent'
+      }`}
+    >
       <div className="section-padding">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -129,7 +143,7 @@ const Header = () => {
             >
               <button
                 className={`flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors duration-300 rounded-md ${
-                  activeDropdown === 'company' || ['/about', '/why-choose-us', '/industries', '/case-studies', '/testimonials', '/partners', '/news', '/careers'].some(p => location.pathname === p)
+                  activeDropdown === 'company' || ['/about', '/why-choose-us', '/industries', '/case-studies', '/testimonials', '/partners', '/careers'].some(p => location.pathname === p)
                     ? 'text-gold bg-gold/10' : 'text-white/80 hover:text-gold hover:bg-white/5'
                 }`}
               >

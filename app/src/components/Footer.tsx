@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { MapPin, Phone, Mail, Linkedin, Twitter, Facebook, Instagram, ArrowUpRight } from 'lucide-react';
+import { MapPin, Phone, Mail, Linkedin, X, Facebook, Instagram, ArrowUpRight } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -66,11 +66,11 @@ const Footer = () => {
                 info@sarmak.in
               </a>
               <a 
-                href="tel:+919999999999" 
+                href="tel:+91 97640 00745" 
                 className="flex items-center gap-3 text-white/60 hover:text-gold transition-colors text-sm"
               >
                 <Phone className="w-4 h-4 text-gold" />
-                +91 99999 99999
+                +91 97640 00745 
               </a>
               <div className="flex items-start gap-3 text-white/60 text-sm">
                 <MapPin className="w-4 h-4 text-gold flex-shrink-0 mt-0.5" />
@@ -160,7 +160,7 @@ const Footer = () => {
             {/* Social Links */}
             <div className="flex items-center gap-4">
               <a 
-                href="https://linkedin.com" 
+                href="https://www.linkedin.com/company/sarmak-solutions" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:bg-gold hover:text-[#1c1d1b] transition-all duration-300"
@@ -168,15 +168,15 @@ const Footer = () => {
                 <Linkedin className="w-4 h-4" />
               </a>
               <a 
-                href="https://twitter.com" 
+                href="https://x.com/SarmakSolutions" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:bg-gold hover:text-[#1c1d1b] transition-all duration-300"
               >
-                <Twitter className="w-4 h-4" />
+                <X className="w-4 h-4" />
               </a>
               <a 
-                href="https://facebook.com" 
+                href="https://www.facebook.com/profile.php?id=61588886422576" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:bg-gold hover:text-[#1c1d1b] transition-all duration-300"
@@ -184,7 +184,7 @@ const Footer = () => {
                 <Facebook className="w-4 h-4" />
               </a>
               <a 
-                href="https://instagram.com" 
+                href="https://www.instagram.com/sarmaksolutions?igsh=NjV6c3pzNTVpeW84" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:bg-gold hover:text-[#1c1d1b] transition-all duration-300"

@@ -7,6 +7,30 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
+## Setup Instructions
+
+### Contact Form Email Configuration
+
+The contact form uses EmailJS to send emails. To set it up:
+
+1. Create an account at [EmailJS](https://www.emailjs.com/)
+2. Add an email service (Gmail, Outlook, etc.) in your EmailJS dashboard
+3. Create an email template with the following variables:
+   - `{{from_name}}` - Sender's name
+   - `{{from_email}}` - Sender's email
+   - `{{phone}}` - Phone number
+   - `{{company}}` - Company name
+   - `{{subject}}` - Subject
+   - `{{message}}` - Message content
+   - `{{to_email}}` - Should be set to `info@sarmak.in`
+4. Copy the Service ID, Template ID, and Public Key from EmailJS
+5. Update the `.env` file with your EmailJS credentials:
+   ```
+   VITE_EMAILJS_SERVICE_ID=your_service_id
+   VITE_EMAILJS_TEMPLATE_ID=your_template_id
+   VITE_EMAILJS_PUBLIC_KEY=your_public_key
+   ```
+
 ## React Compiler
 
 The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).

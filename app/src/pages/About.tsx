@@ -5,25 +5,33 @@ import SEO, { generateOrganizationSchema } from '@/components/SEO';
 const About = () => {
   const leadership = [
     {
+      name: 'Jithesh A. Balan',
+      role: 'CEO & Founder',
+      image: '/jithesh.png',
+      description: 'A senior technology executive with over 23 years of experience leading enterprise IT strategy, infrastructure modernization, and digital transformation across Telecom, Banking, E-Publishing, and Construction sectors.',
+      expertise: ['Enterprise IT', 'Infrastructure Modernization', 'Digital Transformation']
+    },
+    {
       name: 'Rajkumar Gera',
-      role: 'CEO',
-      image: '/ceo.png',
+      role: 'CTO',
+      image: '/raj.png',
       description: 'Brings over three decades of transformative IT infrastructure, cloud strategy, and data center operations. As Chief Technology Officer, he oversees the organizations technology strategy, modernization, and digital transformation roadmap.',
       expertise: ['IT Infrastructure', 'Cloud Strategy', 'Digital Transformation']
     },
     {
-      name: 'Jitesh A. Balan',
-      role: 'CTO',
-      image: '/cto.png',
-      description: 'A senior technology executive with over 23 years of experience leading enterprise IT strategy, infrastructure modernization, and digital transformation across Telecom, Banking, E-Publishing, and Construction sectors.',
-      expertise: ['Enterprise IT', 'Infrastructure Modernization', 'Digital Transformation']
+    name: 'Priyaranjan Mohapatra',
+     role: 'Head of Business (Operations & AI Strategy)',
+     image: '/priyam.png',
+     description: 'Brings over 18 years of transformative program leadership across enterprise technology delivery, P&L governance, and large-scale operations for global Tier-1 clients across the US and APAC. As Head of Business (Operations & AI Strategy), he oversees end-to-end operational governance, Agile at scale, and the strategic adoption of AI to drive delivery modernization and business performance across the organization.',
+     expertise: ['Operational Excellence', 'Leadership', 'Program Management', 'AI Strategy']
     },
-    //{
+   // {
     //  name: 'Sandesh Naik',
-    //  role: 'Advisory Board',
-    //  description: 'A veteran IT strategist with over 30 years of global experience in Oracle technologies, cloud transformation, and enterprise delivery. As Founder of SnehuSan Software Services and former Director at Oracle.',
-    //  expertise: ['Oracle Technologies', 'Cloud Transformation', 'Enterprise Delivery']
-    //},
+     // role: 'Advisory Board',
+     // image: '/sandesh.png',
+     // description: 'A veteran IT strategist with over 30 years of global experience in Oracle technologies, cloud transformation, and enterprise delivery. As Founder of SnehuSan Software Services and former Director at Oracle.',
+     // expertise: ['Oracle Technologies', 'Cloud Transformation', 'Enterprise Delivery']
+    // },
     {
       name: 'Suneel Wattal',
       role: 'Advisory Board',

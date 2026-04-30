@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { MapPin, Phone, Mail, Clock, Send, MessageCircle, Linkedin, Twitter, Facebook, Instagram } from 'lucide-react';
-import { toast } from 'sonner';
+import { MapPin, Phone, Mail, Clock, Send, MessageCircle, Linkedin, X, Facebook, Instagram } from 'lucide-react';
 import SEO from '@/components/SEO';
 
 const Contact = () => {
@@ -12,30 +11,49 @@ const Contact = () => {
     subject: '',
     message: ''
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsSubmitting(true);
+    setError('');
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    toast.success('Thank you for your message! We will get back to you soon.');
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      company: '',
-      subject: '',
-      message: ''
-    });
-    setIsSubmitting(false);
+    try {
+      const form = e.currentTarget;
+      const formDataObj = new FormData(form);
+      
+      // Submit to Netlify Forms
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formDataObj as any).toString(),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          company: '',
+          subject: '',
+          message: ''
+        });
+        // Hide success message after 5 seconds
+        setTimeout(() => setSubmitted(false), 5000);
+      } else {
+        setError('Failed to send message. Please try again.');
+      }
+    } catch (err) {
+      setError('Failed to send message. Please try again or contact us directly.');
+      console.error('Form submission error:', err);
+    }
   };
+
 
   const contactInfo = [
     {
@@ -47,8 +65,8 @@ const Contact = () => {
     {
       icon: Phone,
       title: 'Phone',
-      content: '+91 99999 99999',
-      href: 'tel:+919999999999'
+      content: '+91 97640 00745',
+      href: 'tel:+919764000745'
     },
     {
       icon: MapPin,
@@ -59,7 +77,7 @@ const Contact = () => {
     {
       icon: Clock,
       title: 'Business Hours',
-      content: 'Mon - Sat: 9:00 AM - 6:00 PM',
+      content: 'Mon - Fri: 9:00 AM - 6:00 PM',
       href: '#'
     }
   ];
@@ -127,7 +145,26 @@ const Contact = () => {
                   Send Us a <span className="text-gradient">Message</span>
                 </h2>
                 
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form
+                  name="contact"
+                  method="POST"
+                  data-netlify="true"
+                  onSubmit={handleSubmit}
+                  className="space-y-6"
+                >
+                  <input type="hidden" name="form-name" value="contact" />
+                  
+                  {submitted && (
+                    <div className="p-4 bg-green-500/20 border border-green-500/50 rounded-lg text-green-400">
+                      Thank you for your message! We will get back to you soon.
+                    </div>
+                  )}
+                  
+                  {error && (
+                    <div className="p-4 bg-red-500/20 border border-red-500/50 rounded-lg text-red-400">
+                      {error}
+                    </div>
+                  )}
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-white/80 text-sm mb-2">Your Name *</label>
@@ -214,20 +251,10 @@ const Contact = () => {
                   
                   <button
                     type="submit"
-                    disabled={isSubmitting}
-                    className="btn-primary w-full flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="btn-primary w-full flex items-center justify-center gap-2"
                   >
-                    {isSubmitting ? (
-                      <>
-                        <div className="w-5 h-5 border-2 border-[#1c1d1b] border-t-transparent rounded-full animate-spin" />
-                        Sending...
-                      </>
-                    ) : (
-                      <>
-                        Send Message
-                        <Send className="w-4 h-4" />
-                      </>
-                    )}
+                    Send Message
+                    <Send className="w-4 h-4" />
                   </button>
                 </form>
               </div>
@@ -242,7 +269,7 @@ const Contact = () => {
                 <div className="space-y-6">
                   {/* WhatsApp */}
                   <a 
-                    href="https://wa.me/919999999999" 
+                    href="https://wa.me/918800306555" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="glass-card p-6 flex items-center gap-4 hover-lift group"
@@ -261,7 +288,7 @@ const Contact = () => {
                     <h3 className="text-white font-semibold mb-4">Follow Us</h3>
                     <div className="flex gap-4">
                       <a 
-                        href="https://linkedin.com" 
+                        href="https://www.linkedin.com/company/sarmak-solutions" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:bg-gold hover:text-[#1c1d1b] transition-all"
@@ -269,12 +296,12 @@ const Contact = () => {
                         <Linkedin className="w-5 h-5" />
                       </a>
                       <a 
-                        href="https://twitter.com" 
+                        href="https://x.com/SarmakSolutions" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:bg-gold hover:text-[#1c1d1b] transition-all"
                       >
-                        <Twitter className="w-5 h-5" />
+                        <X className="w-5 h-5" />
                       </a>
                       <a 
                         href="https://facebook.com" 
@@ -285,7 +312,7 @@ const Contact = () => {
                         <Facebook className="w-5 h-5" />
                       </a>
                       <a 
-                        href="https://instagram.com" 
+                        href="https://www.instagram.com/sarmaksolutions/" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:bg-gold hover:text-[#1c1d1b] transition-all"

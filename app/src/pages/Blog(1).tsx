@@ -1,11 +1,9 @@
-import { Calendar, User, ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Calendar, User } from 'lucide-react';
 import SEO from '@/components/SEO';
 
 const Blog = () => {
   const posts = [
     {
-      id: 'ai-infrastructure-management',
       title: 'The Future of AI in IT Infrastructure Management',
       excerpt: 'Discover how artificial intelligence is transforming the way organizations manage their IT infrastructure, from predictive maintenance to automated incident response.',
       author: 'SARMAK Team',
@@ -14,7 +12,6 @@ const Blog = () => {
       readTime: '5 min read'
     },
     {
-      id: 'cloud-migration-2025',
       title: 'Cloud Migration Best Practices for 2025',
       excerpt: 'Learn the essential strategies and best practices for successful cloud migration, minimizing downtime and maximizing ROI.',
       author: 'SARMAK Team',
@@ -23,7 +20,6 @@ const Blog = () => {
       readTime: '7 min read'
     },
     {
-      id: 'ai-training-universities',
       title: 'Why Universities Should Invest in AI Training Programs',
       excerpt: 'Explore the importance of AI education in preparing students for the future job market and how institutions can implement effective training programs.',
       author: 'SARMAK Team',
@@ -32,7 +28,6 @@ const Blog = () => {
       readTime: '6 min read'
     },
     {
-      id: 'devops-trends-2025',
       title: 'DevOps Trends Shaping the Industry',
       excerpt: 'Stay ahead of the curve with these emerging DevOps trends that are revolutionizing software development and deployment.',
       author: 'SARMAK Team',
@@ -41,7 +36,6 @@ const Blog = () => {
       readTime: '4 min read'
     },
     {
-      id: 'database-optimization',
       title: 'Database Performance Optimization Techniques',
       excerpt: 'Practical tips and techniques for optimizing database performance, reducing costs, and improving application responsiveness.',
       author: 'SARMAK Team',
@@ -50,7 +44,6 @@ const Blog = () => {
       readTime: '8 min read'
     },
     {
-      id: 'cybersecurity-ai-age',
       title: 'Cybersecurity in the Age of AI',
       excerpt: 'Understanding how AI is both a threat and a solution in the evolving cybersecurity landscape.',
       author: 'SARMAK Team',
@@ -143,13 +136,6 @@ const Blog = () => {
                           {post.date}
                         </span>
                       </div>
-                      <Link
-                        to={`/blog/${post.id}`}
-                        className="flex items-center gap-2 text-gold hover:text-gold/80 transition-colors text-sm font-medium group-hover:gap-3"
-                      >
-                        Read More
-                        <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                      </Link>
                     </div>
                   </div>
                 </article>

@@ -68,7 +68,7 @@ export const generateOrganizationSchema = () => ({
   description: 'SARMAK provides innovative IT solutions including managed services, AI-powered IT management, cloud services, database management, DevOps, and IT training.',
   sameAs: [
     'https://linkedin.com/company/sarmak',
-    'https://twitter.com/sarmak',
+    'https://x.com/sarmak',
   ],
   contactPoint: {
     '@type': 'ContactPoint',

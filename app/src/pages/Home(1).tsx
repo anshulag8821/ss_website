@@ -86,19 +86,6 @@ const Home = () => {
         {/* Content */}
         <div className="relative z-10 section-padding w-full pt-32 pb-20">
           <div className="max-w-4xl">
-            {/* Logo */}
-            <Link to="/" className="inline-flex items-center gap-3 mb-8 group">
-              <img 
-                src="/logo.png" 
-                alt="SARMAK" 
-                className="h-16 w-auto transition-transform duration-300 group-hover:scale-105"
-              />
-              <div>
-                <span className="text-2xl font-bold text-white tracking-wider">SARMAK</span>
-                <span className="block text-sm text-gold font-mono tracking-widest">INNOVATE. TRANSFORM. EXCEL.</span>
-              </div>
-            </Link>
-
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-gold/10 border border-gold/30 rounded-full mb-8 animate-fade-in">
               <span className="w-2 h-2 bg-gold rounded-full animate-pulse" />
               <span className="text-gold text-sm font-medium">Scaling intelligence. Powering Global Growth</span>
@@ -168,7 +155,7 @@ const Home = () => {
                       <div>
                         <p className="text-gold text-xs uppercase tracking-[0.35em] mb-2">Partnership announcement</p>
                         <h3 className="text-3xl font-semibold text-white whitespace-nowrap">
-                          SARMAK Partners with <a href="https://syncwell.co.in" target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Syncwell</a> Infotech
+                          SARMAK Partners with Syncwell Infotech
                         </h3>
                       </div>
                     </div>
@@ -199,7 +186,7 @@ const Home = () => {
                     </li>
                     <li className="flex gap-3 text-white/70">
                       <span className="mt-1 inline-flex h-2 w-2 rounded-full bg-gold" />
-                      Expanding our reach across India and beyond with <a href="https://syncwell.co.in" target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Syncwell</a>'s extensive network and expertise
+                      Expanding our reach across India and beyond with Syncwell’s extensive network and expertise
                     </li>
                   </ul>
                   <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/80">
