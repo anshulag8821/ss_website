@@ -122,7 +122,7 @@ RESPONSE STYLE RULES
 `;
 
 const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
-const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent';
+const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
 
 async function callGemini(
   history: { role: string; parts: { text: string }[] }[],
@@ -187,6 +187,7 @@ const ChatBot = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
+  const [tooltip, setTooltip] = useState(true);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([
@@ -379,14 +380,33 @@ const ChatBot = () => {
           </div>
         </div>
       ) : (
-        <button
-          type="button"
-          onClick={() => setOpen(true)}
-          className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-gold text-slate-950 shadow-2xl shadow-black/20 transition hover:-translate-y-1"
-          aria-label="Open chat bot"
-        >
-          <MessageSquare className="h-6 w-6" />
-        </button>
+        <div className="flex flex-col items-end gap-3">
+          {tooltip && (
+            <div className="relative flex items-center gap-2 rounded-2xl bg-slate-900 border border-white/10 px-4 py-3 shadow-xl max-w-[220px] animate-fade-in">
+              {/* Tail pointing down-right */}
+              <span className="absolute -bottom-2 right-5 h-3 w-3 rotate-45 bg-slate-900 border-r border-b border-white/10" />
+              <p className="text-sm text-white leading-snug">
+                👋 Hi! Ask me anything about <span className="text-gold font-semibold">SARMAK</span>
+              </p>
+              <button
+                type="button"
+                onClick={() => setTooltip(false)}
+                className="ml-1 shrink-0 rounded-full p-0.5 text-slate-400 hover:text-white transition"
+                aria-label="Dismiss"
+              >
+                <X className="h-3.5 w-3.5" />
+              </button>
+            </div>
+          )}
+          <button
+            type="button"
+            onClick={() => { setOpen(true); setTooltip(false); }}
+            className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-gold text-slate-950 shadow-2xl shadow-black/20 transition hover:-translate-y-1"
+            aria-label="Open chat bot"
+          >
+            <MessageSquare className="h-6 w-6" />
+          </button>
+        </div>
       )}
     </div>
   );
