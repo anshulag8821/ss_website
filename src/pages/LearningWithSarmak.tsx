@@ -2,6 +2,33 @@ import { ArrowRight, Cpu, Rocket, ShieldCheck, Sparkles } from 'lucide-react';
 import SEO from '@/components/SEO';
 
 const LearningWithSarmak = () => {
+  const handleSubmit = async (
+  e: React.FormEvent<HTMLFormElement>
+) => {
+  e.preventDefault();
+
+  const form = e.currentTarget;
+  const formData = new FormData(form);
+
+  try {
+    await fetch(
+      "https://script.google.com/macros/s/AKfycbz2LF4UPeqobcLPaKZNtj6m4SXvR2L5Ey2uYFtmCwrwlvBuashAwQGB4yKf14pz639v/exec",
+      {
+        method: "POST",
+        mode: "no-cors",
+        body: formData,
+      }
+    );
+
+    alert("Registration submitted successfully!");
+    form.reset();
+
+    window.location.href = "/thank-you.html";
+  } catch (error) {
+    alert("Something went wrong. Please try again.");
+    console.error(error);
+  }
+};
   return (
     <>
       <SEO
@@ -223,23 +250,10 @@ const LearningWithSarmak = () => {
                 </div>
               </div>
             </div>
-
             <form
-              name="learning-with-sarmak"
-              method="POST"
-              action="/thank-you.html"
-              data-netlify="true"
-              data-netlify-honeypot="bot-field"
+              onSubmit={handleSubmit}
               className="space-y-6"
             >
-
-              <input type="hidden" name="form-name" value="learning-with-sarmak" />
-              <input type="hidden" name="bot-field" />
-
-              <div className="rounded-3xl border border-white/10 bg-white/5 p-4 text-sm text-white/70">
-                This form uses Netlify Forms. After submitting, you will be redirected to the thank-you page.
-              </div>
-
               <div className="grid gap-6 sm:grid-cols-2">
                 <label className="space-y-2 text-sm text-white/70">
                   Full Name *
