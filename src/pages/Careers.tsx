@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ArrowRight, Target, Handshake, Eye, Zap } from 'lucide-react';
+import { ArrowRight, Target, Handshake, Eye, Zap, Rocket, Globe2, Trophy, BookOpen, Cpu } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SEO from '@/components/SEO';
 
@@ -40,11 +40,11 @@ const BENEFITS = [
 ];
 
 const LIFE_GRID = [
-  { emoji: '🚀', label: 'All-hands every Monday', wide: true },
-  { emoji: '🌏', label: 'Remote across 6 countries', tall: true },
-  { emoji: '🏆', label: 'Quarterly team offsite' },
-  { emoji: '📚', label: 'Bi-weekly learning lunch' },
-  { emoji: '🤖', label: 'Internal AI hackathons' },
+  { icon: Rocket, label: 'All-Hands Every Monday', description: 'Thirty minutes, whole company, no slides required.', wide: true },
+  { icon: Globe2, label: 'Remote Across 6 Countries', description: 'Async by default, time zones by choice, not by apology.', tall: true },
+  { icon: Trophy, label: 'Quarterly Team Offsite', description: 'One city, one team, zero laptops open.' },
+  { icon: BookOpen, label: 'Bi-Weekly Learning Lunch', description: 'Someone teaches, everyone eats, no slide deck survives contact.' },
+  { icon: Cpu, label: 'Internal AI Hackathons', description: 'Ship something weird on Friday, keep what works on Monday.' },
 ];
 
 const PROCESS_STEPS = [
@@ -233,14 +233,15 @@ const Careers = () => {
               {LIFE_GRID.map((cell, i) => (
                 <div
                   key={i}
-                  className={`rounded-xl flex items-center justify-center text-center p-6 bg-gradient-to-br from-gold/20 to-black/40 border border-white/10 ${
+                  className={`glass-card p-7 flex flex-col justify-center hover-lift ${
                     cell.wide ? 'lg:col-span-2' : ''
                   } ${cell.tall ? 'lg:row-span-2' : ''}`}
                 >
-                  <div>
-                    <span className="text-4xl block mb-3">{cell.emoji}</span>
-                    <span className="text-white/80 text-sm font-semibold uppercase tracking-wide">{cell.label}</span>
+                  <div className="w-11 h-11 rounded-lg bg-gold/10 flex items-center justify-center mb-4">
+                    <cell.icon className="w-5 h-5 text-gold" />
                   </div>
+                  <span className="text-white text-sm font-semibold uppercase tracking-wide mb-1.5">{cell.label}</span>
+                  <span className="text-white/50 text-xs leading-relaxed">{cell.description}</span>
                 </div>
               ))}
             </div>
