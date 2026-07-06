@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronRight, Brain, Cloud, Database, Code, GraduationCap, CheckCircle, TrendingUp, Users, Shield, Zap } from 'lucide-react';
 import SEO, { generateOrganizationSchema } from '@/components/SEO';
+import mantechLogo from '@/assets/mantech_logo.png';
 
 const Home = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -116,15 +117,24 @@ const Home = () => {
               transform, transition, and excel in the digital era.
             </p>
             
-            <div className="flex flex-wrap gap-4 mb-12">
+            <div className="flex flex-wrap gap-4 mb-4">
               <Link to="/contact" className="btn-primary flex items-center gap-2 group">
                 Get Started
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
+
               <Link to="/services/managed-it" className="btn-outline flex items-center gap-2">
                 Our Services
                 <ChevronRight className="w-4 h-4" />
               </Link>
+                            <div className="flex flex-col gap-3">
+                <a href="https://learn.sarmak.in" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-6 py-3 text-white font-semibold shadow-2xl shadow-emerald-500/20 transition hover:bg-emerald-600">
+                  Join Free Training
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+                <a href="https://learn.sarmak.in" target="_blank" rel="noopener noreferrer" className="text-sm text-emerald-300 hover:text-emerald-100 transition-colors">
+                </a>
+              </div>
             </div>
 
             {/* Stats */}
@@ -153,10 +163,10 @@ const Home = () => {
             <div className="text-center mb-12">
               <span className="text-gold text-sm font-medium uppercase tracking-widest mb-4 block">Latest News</span>
               <h2 className="heading-lg text-white mb-4">
-                Major Highlights of <span className="text-gradient">SARMAK</span>  and latest news
+                SARMAK is launching an industry-ready training program for college graduates
               </h2>
               <p className="body-lg text-white/70 max-w-3xl mx-auto">
-                Latest announcements and news
+                Learn in-demand technology skills with a free 4-week program covering Databases, Linux, DevOps, and AI. Visit <a href="https://learn.sarmak.in" target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">learn.sarmak.in</a> to reserve your seat and learn more.
               </p>
             </div>
 
@@ -166,46 +176,100 @@ const Home = () => {
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
                     <div className="flex items-center gap-4">
                       <div>
-                        <p className="text-gold text-xs uppercase tracking-[0.35em] mb-2">Partnership announcement</p>
+                        <p className="text-gold text-xs uppercase tracking-[0.35em] mb-2">Training Launch</p>
                         <h3 className="text-3xl font-semibold text-white whitespace-nowrap">
-                          SARMAK Partners with <a href="https://syncwell.co.in" target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Syncwell</a> Infotech
+                          SARMAK launches industry-ready learning at <a href="https://learn.sarmak.in" target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">learn.sarmak.in</a>
                         </h3>
                       </div>
                     </div>
-                    <span className="text-white/60 text-sm uppercase tracking-[0.3em]">April 16, 2026</span>
+                    <span className="text-white/60 text-sm uppercase tracking-[0.3em]">May 25, 2026</span>
                   </div>
                   <div className="mb-6">
                     <img 
-                      src="/syncwell_partnership_news.jpeg" 
-                      alt="SARMAK Partnership Announcement" 
+                      src="/ai-training.jpg" 
+                      alt="SARMAK Learning Launch" 
                       className="w-full max-w-md rounded-lg shadow-lg border border-white/10"
                     />
                   </div>
                   <p className="body-lg text-white/70 mb-6">
-                    A powerful collaboration bringing HR consulting and technology solutions together to empower workforce transformation and digital growth.
+                    SARMAK is launching a free industry-ready training program for fresh graduates and early-career professionals. The program includes real-world projects, expert mentoring, resume support, and hands-on learning in databases, Linux, DevOps, and AI.
                   </p>
                   <ul className="space-y-3 mb-6">
                     <li className="flex gap-3 text-white/70">
                       <span className="mt-1 inline-flex h-2 w-2 rounded-full bg-gold" />
-                       Delivering end-to-end digital & workforce transformation
+                       Free 4-week practical training for graduates and early-career professionals
                     </li>
                     <li className="flex gap-3 text-white/70">
                       <span className="mt-1 inline-flex h-2 w-2 rounded-full bg-gold" />
-                      Empowering businesses with smarter technology + stronger talent
+                      Hands-on projects in Databases, Linux, DevOps, and AI
                     </li>
                     <li className="flex gap-3 text-white/70">
                       <span className="mt-1 inline-flex h-2 w-2 rounded-full bg-gold" />
-                      Creating scalable, people-first solutions for modern enterprises
+                      Resume review, interview prep, and industry mentor support
                     </li>
                     <li className="flex gap-3 text-white/70">
                       <span className="mt-1 inline-flex h-2 w-2 rounded-full bg-gold" />
-                      Expanding our reach across India and beyond with <a href="https://syncwell.co.in" target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Syncwell</a>'s extensive network and expertise
+                      Register now at <a href="https://learn.sarmak.in" target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">learn.sarmak.in</a>
                     </li>
                   </ul>
                   <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/80">
                     <span className="h-2 w-2 rounded-full bg-gold animate-pulse" />
                     <span> #BusinessGrowth #StrategicAlliance</span>
                   </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Partnership Announcement */}
+      <section className="relative py-24 overflow-hidden bg-[#080a10]">
+        <div className="section-padding">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <span className="text-gold text-sm font-medium uppercase tracking-widest mb-4 block">Partnership News</span>
+              <h2 className="heading-lg text-white mb-4">
+                SARMAK enters a strategic collaboration with <span className="text-gradient">Mantech Intellisys Pvt Ltd</span>
+              </h2>
+              <p className="body-lg text-white/70 max-w-3xl mx-auto">
+                We are proud to partner with <a href="https://mantechintellisys.com" target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Mantech Intellisys Pvt Ltd</a> to deliver innovative, reliable, and scalable technology solutions that accelerate digital transformation for businesses across industries.
+              </p>
+            </div>
+
+            <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-slate-950/95">
+              <article className="min-w-full px-8 py-10">
+                <div className="max-w-3xl mx-auto">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+                    <div>
+                      <p className="text-gold text-xs uppercase tracking-[0.35em] mb-2">Strategic Collaboration</p>
+                      <h3 className="text-3xl font-semibold text-white">
+                        SARMAK partners with Mantech Intellisys Pvt Ltd
+                      </h3>
+                    </div>
+                    <span className="text-white/60 text-sm uppercase tracking-[0.3em]">July 2026</span>
+                  </div>
+
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+                    <img
+                      src={mantechLogo}
+                      alt="Mantech Intellisys Logo"
+                      className="h-16 w-auto rounded-lg bg-white/5 p-2"
+                    />
+                    <p className="text-white/70 text-sm max-w-2xl">
+                      Our collaboration with Mantech Intellisys Pvt Ltd unites our strengths for reliable, scalable digital transformation that delivers greater value to businesses across industries.
+                    </p>
+                  </div>
+
+                  <p className="body-lg text-white/70 mb-6">
+                    This partnership represents a shared vision of delivering innovative, reliable, and scalable technology solutions that help organizations accelerate their digital transformation journey.
+                  </p>
+                  <p className="body-lg text-white/70 mb-6">
+                    By combining our strengths, expertise, and customer-centric approach, we are well-positioned to create greater value for businesses across industries.
+                  </p>
+                  <p className="body-lg text-white/70">
+                    Learn more at <a href="https://mantechintellisys.com" target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">mantechintellisys.com</a>.
+                  </p>
                 </div>
               </article>
             </div>
@@ -409,11 +473,10 @@ const Home = () => {
                   ))}
                 </div>
                 
-               <Link to="/services/ai-training" className="btn-primary inline-flex items-center gap-2 group">
-                 {/* Learn More */}
-                  Coming soon
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link> 
+               <a href="https://learn.sarmak.in" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-6 py-3 text-white font-semibold transition hover:bg-emerald-600">
+                  Launch Offer
+                  <ArrowRight className="w-4 h-4" />
+                </a>
               </div>
             </div>
           </div>

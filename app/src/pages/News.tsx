@@ -14,21 +14,29 @@ const News = () => {
     },
     {
       id: 2,
-      title: 'Partnership with Microsoft for Cloud Transformation Services',
-      date: '2024-11-28',
+      title: 'Partnership with Syncwell for Cloud Transformation Services',
+      date: '2026-04-16',
       excerpt: 'Strategic alliance brings cutting-edge Azure solutions to enterprise clients.',
       category: 'Partnership',
       readTime: '4 min read'
     },
     {
       id: 3,
-      title: 'SARMAK Achieves ISO 27001 Certification',
-      date: '2024-11-10',
+      title: 'SARMAK announces strategic partnership with Mantech Intellisys Pvt Ltd',
+      date: '2026-07-06',
+      excerpt: 'SARMAK and Mantech Intellisys join forces to deliver reliable, scalable digital transformation solutions.',
+      category: 'Partnership',
+      readTime: '3 min read'
+    },
+    {
+      id: 4,
+      title: 'SARMAK launches EdTech Program',
+      date: '2026-05-25',
       excerpt: 'Industry-leading security standards ensure maximum protection for client data.',
       category: 'Certification',
       readTime: '2 min read'
     },
-    {
+  /*  {
       id: 4,
       title: 'New DevOps Center of Excellence Established',
       date: '2024-10-22',
@@ -51,7 +59,7 @@ const News = () => {
       excerpt: 'Seamless migration solutions for Oracle, SQL Server, and cloud databases.',
       category: 'Services',
       readTime: '4 min read'
-    }
+    } */
   ];
 
   const formatDate = (dateString: string) => {
