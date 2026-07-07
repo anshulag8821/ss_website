@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Form - Netlify Forms Detection</title>
+</head>
+<body>
+    <!-- This hidden form helps Netlify detect the form during build time -->
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+        <input type="tel" name="phone" />
+        <input type="text" name="company" />
+        <select name="subject">
+            <option value="general">General Inquiry</option>
+            <option value="services">IT Services</option>
+            <option value="ai">AI Solutions</option>
+            <option value="training">AI Training</option>
+            <option value="partnership">Partnership</option>
+            <option value="careers">Careers</option>
+        </select>
+        <textarea name="message"></textarea>
+    </form>
+    <form name="learning-with-sarmak" netlify netlify-honeypot="bot-field" hidden>
+        <input type="hidden" name="form-name" value="learning-with-sarmak" />
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+        <input type="tel" name="phone" />
+        <input type="text" name="college" />
+        <input type="text" name="course" />
+        <input type="date" name="startDate" />
+        <textarea name="message"></textarea>
+        <input type="text" name="bot-field" />
+    </form>
+</body>
+</html>

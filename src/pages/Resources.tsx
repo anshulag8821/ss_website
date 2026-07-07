@@ -1,0 +1,166 @@
+import { FileText, Download, BookOpen, Video, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import SEO from '@/components/SEO';
+
+const Resources = () => {
+  const resources = [
+    {
+      icon: FileText,
+      title: 'Whitepapers',
+      description: 'In-depth technical documents and industry insights.',
+      items: [
+        { name: 'AI in IT Infrastructure Management', type: 'PDF', file: '/whitepapers/ai-infrastructure-management.pdf' },
+        { name: 'Cloud Migration Best Practices', type: 'PDF', file: '/whitepapers/cloud-migration-guide.pdf' },
+        { name: 'Database Optimization Guide', type: 'PDF', file: '/whitepapers/database-optimization.pdf' }
+      ]
+    },
+    {
+      icon: BookOpen,
+      title: 'Case Studies',
+      description: 'Real-world success stories from our clients.',
+      items: [
+        { name: 'Financial Services Cloud Migration', type: 'PDF', file: '/case-studies/financial-services-migration.pdf' },
+        { name: 'University AI Training Program', type: 'PDF', file: '/case-studies/university-ai-program.pdf' },
+        { name: 'Manufacturing Database Optimization', type: 'PDF', file: '/case-studies/manufacturing-database.pdf' }
+      ]
+    },
+    {
+      icon: Video,
+      title: 'Webinars',
+      description: 'Recorded sessions and upcoming events.',
+      items: [
+        { name: 'Introduction to AI in IT Operations', type: 'Video', file: '/webinars/ai-it-operations.mp4' },
+        { name: 'DevOps Fundamentals', type: 'Video', file: '/webinars/devops-fundamentals.mp4' },
+        { name: 'Cloud Security Best Practices', type: 'Video', file: '/webinars/cloud-security.mp4' }
+      ]
+    }
+  ];
+
+  const guides = [
+    { title: 'IT Infrastructure Assessment Checklist', description: 'Evaluate your current IT setup', file: '/guides/it-infrastructure-checklist.pdf' },
+    { title: 'Cloud Readiness Guide', description: 'Prepare for cloud migration', file: '/guides/cloud-readiness-guide.pdf' },
+    { title: 'Security Audit Framework', description: 'Assess your security posture', file: '/guides/security-audit-framework.pdf' },
+    { title: 'Disaster Recovery Planning', description: 'Build resilient IT systems', file: '/guides/disaster-recovery-planning.pdf' }
+  ];
+
+  return (
+    <>
+      <SEO 
+        title="Resources - Whitepapers, Case Studies & Guides"
+        description="Access SARMAK's library of resources including whitepapers, case studies, guides, and webinars on IT infrastructure, cloud, AI, and more."
+        keywords="IT resources, whitepapers, case studies, IT guides, cloud migration guide"
+      />
+
+      {/* Hero Section */}
+      <section className="relative pt-32 pb-20 overflow-hidden">
+        <div className="absolute inset-0 bg-hex-pattern opacity-20" />
+        
+        <div className="relative z-10 section-padding">
+          <div className="max-w-4xl mx-auto text-center">
+            <span className="text-gold text-sm font-medium uppercase tracking-widest mb-4 block">Resources</span>
+            <h1 className="heading-xl text-white mb-6">
+              Knowledge <span className="text-gradient">Center</span>
+            </h1>
+            <p className="body-lg text-white/70 max-w-2xl mx-auto">
+              Explore our library of resources to learn more about IT best practices, 
+              industry trends, and technology insights.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Resources Grid */}
+      <section className="relative py-24 bg-black/30">
+        <div className="section-padding">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-3 gap-8">
+              {resources.map((category, index) => (
+                <div key={index} className="glass-card p-8">
+                  <div className="w-14 h-14 rounded-lg bg-gold/10 flex items-center justify-center mb-6">
+                    <category.icon className="w-7 h-7 text-gold" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-white mb-2">{category.title}</h3>
+                  <p className="body-sm mb-6">{category.description}</p>
+                  <ul className="space-y-3">
+                    {category.items.map((item, i) => (
+                      <li key={i} className="flex items-center justify-between text-white/70 text-sm group">
+                        <span className="group-hover:text-white transition-colors">{item.name}</span>
+                        <a
+                          href={item.file}
+                          download
+                          className="flex items-center gap-2 px-3 py-1 bg-gold/10 text-gold rounded text-xs hover:bg-gold hover:text-[#1c1d1b] transition-all"
+                        >
+                          <Download className="w-3 h-3" />
+                          Download
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Guides */}
+      <section className="relative py-24">
+        <div className="absolute inset-0 bg-hex-pattern opacity-20" />
+        
+        <div className="relative z-10 section-padding">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <span className="text-gold text-sm font-medium uppercase tracking-widest mb-4 block">Guides</span>
+              <h2 className="heading-lg text-white mb-6">
+                Free <span className="text-gradient">Downloads</span>
+              </h2>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              {guides.map((guide, index) => (
+                <div key={index} className="glass-card p-6 flex items-center justify-between hover-lift group">
+                  <div>
+                    <h3 className="text-white font-semibold mb-1 group-hover:text-gold transition-colors">{guide.title}</h3>
+                    <p className="text-white/60 text-sm">{guide.description}</p>
+                  </div>
+                  <a
+                    href={guide.file}
+                    download
+                    className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center text-gold hover:bg-gold hover:text-[#1c1d1b] transition-all group-hover:scale-110"
+                  >
+                    <Download className="w-5 h-5" />
+                  </a>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="relative py-24 overflow-hidden">
+        <div className="absolute inset-0">
+          <img src="/about-bg.jpg" alt="CTA Background" className="w-full h-full object-cover opacity-20" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1c1d1b] via-[#1c1d1b]/80 to-[#1c1d1b]" />
+        </div>
+        
+        <div className="relative z-10 section-padding">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="heading-lg text-white mb-6">
+              Need <span className="text-gradient">Custom</span> Resources?
+            </h2>
+            <p className="body-lg text-white/70 mb-8">
+              Contact us for customized documentation and resources tailored to your needs.
+            </p>
+            <Link to="/contact" className="btn-primary inline-flex items-center gap-2 group">
+              Contact Us
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
+
+export default Resources;
